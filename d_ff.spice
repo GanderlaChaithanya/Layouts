@@ -1,0 +1,53 @@
+* SPICE3 file created from d_ff.ext - technology: sky130A
+
+.option scale=0.01u
+.include pshort.lib
+.include nshort.lib
+
+M1000 ~clk clk vdd vdd pshort_model.0 ad=0.00231 pd=194 as=0.00143 ps=152 w=42 l=15
+M1001 OUT ~clk a_n336_n160# gnd nshort_model.0 ad=0.00237 pd=196 as=0.00159 ps=160 w=43 l=15
+M1002 a_n33_n164# a_n336_n160# gnd gnd nshort_model.0 ad=0.00172 pd=166 as=0.00185 ps=172 w=42 l=15
+M1003 a_n336_n160# clk D gnd nshort_model.0 ad=0.00212 pd=184 as=0.00212 ps=184 w=45 l=15
+M1004 OUT a_n33_n164# gnd gnd nshort_model.0 ad=0.0023 pd=190 as=0.00143 ps=152 w=42 l=15
+M1005 ~clk clk gnd gnd nshort_model.0 ad=0.00218 pd=188 as=0.00155 ps=158 w=42 l=15
+M1006 OUT a_n33_n164# vdd vdd pshort_model.0 ad=0.00212 pd=184 as=0.00180 ps=170 w=45 l=15
+M1007 a_n33_n164# a_n336_n160# vdd vdd pshort_model.0 ad=0.00181 pd=170 as=0.00176 ps=168 w=42 l=15
+VDD VDD 0 3.3V
+VSS VSS 0 0V
+Va clk gnd PULSE(0 3.3V 0 0.1ns 0.1ns 2ns 4ns)
+Vb D gnd PULSE(0 3.3V 0 0.2ns 0.2ns 1ns 4ns)
+C0 ~clk m1_n415_n258# 0.00204f
+C1 vdd a_n336_n160# 0.0427f
+C2 ~clk m1_n112_n507# 0.00921f
+C3 OUT vdd 0.0882f
+C4 OUT a_n336_n160# 0.175f
+C5 m1_n415_n258# a_n336_n160# 0.00594f
+C6 D clk 0.0865f
+C7 vdd a_n33_n164# 0.153f
+C8 ~clk clk 0.233f
+C9 m1_n112_n507# a_n336_n160# 0.00407f
+C10 OUT m1_n112_n507# 0.0045f
+C11 a_n33_n164# a_n336_n160# 0.109f
+C12 OUT a_n33_n164# 0.102f
+C13 vdd clk 0.253f
+C14 clk a_n336_n160# 0.0128f
+C15 m1_n415_n258# clk 0.0114f
+C16 ~clk vdd 0.108f
+C17 D a_n336_n160# 0.122f
+C18 ~clk a_n336_n160# 0.0988f
+C19 ~clk OUT 0.00897f
+C20 D m1_n415_n258# 0.00419f
+C21 m1_n112_n507# gnd 0.117f
+C22 m1_n415_n258# gnd 0.153f
+C23 D gnd 0.0525f
+C24 OUT gnd 1.05f 
+C25 a_n33_n164# gnd 0.603f 
+C26 a_n336_n160# gnd 1.06f 
+C27 ~clk gnd 1.58f 
+C28 clk gnd 2.29f 
+C29 vdd gnd 2.06f 
+.tran 1n 20n
+.control
+run
+.endc
+.end
