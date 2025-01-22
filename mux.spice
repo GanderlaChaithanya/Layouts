@@ -1,0 +1,57 @@
+* SPICE3 file created from mux.ext - technology: sky130A
+
+.option scale=0.01u
+.include pshort.lib
+.include nshort.lib
+
+
+M1000 a_n179_n69# s vdd vdd pshort_model.0 ad=1730 pd=168 as=1730 ps=168 w=48 l=21
+M1001 a_n99_n106# s a_232_n109# gnd nshort_model.0 ad=2300 pd=192 as=1400 ps=107 w=46 l=22
+M1002 a_n99_n106# a_n179_n69# vdd vdd pshort_model.0 ad=1560 pd=115 as=1890 ps=174 w=44 l=20
+M1003 a_232_n109# i1 gnd gnd nshort_model.0 ad=1400 pd=107 as=1980 ps=178 w=46 l=22
+M1004 y a_n99_n106# gnd gnd nshort_model.0 ad=1980 pd=178 as=2210 ps=188 w=46 l=21
+M1005 a_n99_n106# i1 a_n99_n106# vdd pshort_model.0 ad=1060 pd=832 as=2510 ps=202m w=44 l=22
+M1006 y a_n99_n106# vdd vdd pshort_model.0 ad=2020 pd=180 as=1940 ps=176 w=44 l=21
+M1007 a_n179_n69# s gnd gnd nshort_model.0 ad=1730 pd=168 as=1780 ps=170 w=48 l=21
+M1008 a_n42_n106# a_n179_n69# a_n99_n106# gnd nshort_model.0 ad=1630 pd=117 as=1700 ps=166 w=46 l=20
+M1009 vdd i0 a_n99_n106# vdd pshort_model.0 ad=2020 pd=180 as=1560 ps=115 w=44 l=20
+M1010 a_n99_n106# s a_n99_n106# vdd pshort_model.0 ad=0 pd=0 as=1340 ps=105 w=44 l=22
+M1011 gnd i0 a_n42_n106# gnd nshort_model.0 ad=2300 pd=192 as=1630 ps=117 w=46 l=20
+VDD VDD 0 5V
+VSS VSS 0 0V
+Va s VSS PULSE(0 5V 0 0.01ns 0.01ns 10ns 20ns)
+Vb i0 VSS PULSE(0 5V 0 0.01ns 0.01ns 5ns 20ns)
+Vc i1 VSS PULSE(0 5V 0 0.01ns 0.01ns 2ns 20ns)
+C0 i1 i0 0.0298f
+C1 vdd s 0.0692f
+C2 vdd i0 0.0238f
+C3 i1 vdd 0.00517f
+C4 s y 0.00696f
+C5 a_n99_n106# a_n179_n69# 0.133f
+C6 a_232_n109# a_n99_n106# 0.0147f
+C7 a_n42_n106# a_n99_n106# 0.0122f
+C8 vdd y 0.087f
+C9 s a_n179_n69# 0.0784f
+C10 i0 a_n179_n69# 0.0858f
+C11 a_n99_n106# s 0.279f
+C12 a_n99_n106# i0 0.0707f
+C13 i1 a_n99_n106# 0.148f
+C14 vdd a_n179_n69# 0.238f
+C15 a_n42_n106# i0 0.00348f
+C16 a_n99_n106# vdd 0.829f
+C17 a_n99_n106# y 0.0801f
+C18 i1 s 0.0596f
+C19 y gnd 0.309f
+C20 s gnd 0.717f
+C21 i1 gnd 0.353f
+C22 i0 gnd 0.333f
+C23 vdd gnd 2.98f
+C24 a_232_n109# gnd 0.0156f 
+C25 a_n42_n106# gnd 0.0179f 
+C26 a_n99_n106# gnd 1.26f 
+C27 a_n179_n69# gnd 0.506f 
+.tran 1n 40ns
+.control
+run
+.endc
+.end

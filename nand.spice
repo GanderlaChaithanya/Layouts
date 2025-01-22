@@ -1,0 +1,31 @@
+* SPICE3 file created from nand.ext - technology: sky130A
+
+.option scale=0.01u
+.include pshort.lib
+.include nshort.lib
+
+M1000 a_n40_n236# A OUT gnd nshort_model.0 ad=0.00225 pd=137 as=0.00242 ps=198 w=55 l=39
+M1001 OUT A vdd vdd pshort_model.0 ad=0.00221 pd=136 as=0.00270 ps=208 w=54 l=39
+M1002 vdd B OUT vdd pshort_model.0 ad=0.00275 pd=210 as=0.00221 ps=136 w=54 l=31
+M1003 gnd B a_n40_n236# gnd nshort_model.0 ad=0.00264 pd=206 as=0.00225 ps=137 w=55 l=31
+VDD VDD 0 3.3V
+VSS VSS 0 0V
+Va A gnd PULSE(0 3.3V 0 0.1ns 0.1ns 2ns 4ns)
+Vb B gnd PULSE(0 3.3v 0 0.2ns 0.2ns 1ns 3ns)
+C0 vdd OUT 0.0996f
+C1 B A 0.0724f
+C2 A OUT 0.186f
+C3 B OUT 0.0884f
+C4 A vdd 0.0652f
+C5 a_n40_n236# OUT 0.0163f
+C6 B vdd 0.0638f
+C7 a_n40_n236# gnd 0.0215f
+C8 OUT gnd 0.494f 
+C9 B gnd 0.612f 
+C10 A gnd 0.665f 
+C11 vdd gnd 1.36f 
+.tran 1n 20n
+.control
+run
+.endc
+.end
