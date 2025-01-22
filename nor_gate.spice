@@ -1,0 +1,32 @@
+* SPICE3 file created from nor_gate.ext - technology: sky130A
+
+.option scale=0.01u
+.include pshort.lib
+.include nshort.lib
+
+M1000 a_n1_n1# A vdd vdd pshort_model.0 ad=0.00371 pd=186 as=0.00278 ps=212 w=58 l=27
+M1001 OUT B a_n1_n1# vdd pshort_model.0 ad=0.00255 pd=204 as=0.00371n ps=186 w=58 l=26
+M1002 OUT A gnd gnd nshort_model.0 ad=0.00397 pd=190 as=0.00304 ps=222 w=62 l=27
+M1003 gnd B OUT gnd nshort_model.0 ad=0.00291 pd=218 as=0.00397 ps=190 w=62 l=26
+VDD VDD 0 3.3V
+VSS VSS 0 0V
+Va A gnd PULSE(0 3.3V 0 0.1ns 0.1ns 2ns 4ns)
+Vb B gnd PULSE(0 3.3V 0 0.2ns 0.2ns 1ns 3ns)
+C0 A vdd 0.0473f
+C1 OUT a_n1_n1# 0.0173f
+C2 B vdd 0.0328f
+C3 OUT vdd 0.0837f
+C4 vdd a_n1_n1# 0.0347f
+C5 B A 0.0489f
+C6 OUT A 0.0285f
+C7 B OUT 0.155f
+C8 B a_n1_n1# 0.00725f
+C9 OUT gnd 0.556f 
+C10 B gnd 0.526f 
+C11 A gnd 0.629f 
+C12 vdd gnd 1.22f 
+.tran 1n 20n
+.control
+run
+.endc
+.end
