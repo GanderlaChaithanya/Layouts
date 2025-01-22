@@ -1,0 +1,30 @@
+* SPICE3 file created from INV.ext - technology: sky130A
+
+.option scale=0.01u
+
+.include pshort.lib
+.include nshort.lib
+//.subckt INV IN OUT
+
+
+
+
+M1000 OUT IN VDD VDD pshort_model.0 ad=2130 pd=192 as=2200 ps=194 w=61 l=15
+M1001 OUT IN GND GND nshort_model.0 ad=2130 pd=188 as=2070 ps=186 w=56 l=15
+VDD VDD 0 5V
+VSS VSS 0 0V
+Vin IN VSS PULSE(0 5V 0 0.1ns 0.1ns 2ns 4ns)
+C0 OUT IN 0.0392f
+C1 VDD IN 0.0212f
+C2 OUT VDD 0.123f
+C3 OUT GND 0.256f
+C4 IN GND 0.374f
+C5 VDD GND 0.992f **FLOATING
+
+//.ends
+
+.tran 1n 30n
+.control
+run
+.endc
+.end

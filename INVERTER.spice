@@ -1,0 +1,23 @@
+* SPICE3 file created from INVERTER.ext - technology: sky130A
+
+.option scale=0.01u
+.include pshort.lib
+.include nshort.lib
+
+M1000 OUT IN vdd vdd pshort_model.0 ad=0.00842 pd=428 as=0.00551 ps=316m w=52 l=51
+M1001 OUT IN GND GND nshort_model.0 ad=0.00822n pd=420 as=0.005677n ps=326 w=52 l=51
+VDD VDD 0 3.3V
+VSS VSS 0 0V
+Va IN GND PULSE(0 3.3V 0 0.1ns 0.1ns 2ns 4ns)
+C0 OUT IN 0.0806f
+C1 IN vdd 0.0246f
+C2 OUT vdd 0.069f
+C3 OUT GND 0.795f 
+C4 IN GND 1.68f 
+C5 vdd GND 5.33f 
+.tran 1n 20n
+.control
+run
+.endc
+.end
+
